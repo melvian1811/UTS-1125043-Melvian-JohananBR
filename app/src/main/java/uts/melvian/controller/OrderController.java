@@ -33,7 +33,7 @@ public class OrderController {
         throw new MenuTidakDitemukanException("ID Menu '" + id + "' tidak ditemukan!");
     }
 
-    public void validasiJumlah(int jumlah, MenuItem item) throws InputTidakValidException, StokTidakCukupException {
+    public void Jumlah(int jumlah, MenuItem item) throws InputTidakValidException, StokTidakCukupException {
         if (jumlah <= 0) {
             throw new InputTidakValidException("Jumlah pesanan harus lebih dari 0");
         }
@@ -42,9 +42,10 @@ public class OrderController {
         }
     }
 
-    public double prosesPemesanan(MenuItem item, int jumlah, int[] customizations, String kodePromo) {
+    public double prosesPemesanan(MenuItem item, int jumlah, String kodePromo, int[] customizations) {
     item.Customize(customizations);
-    double totalHarga = item.hitungHargaTotal(jumlah, kodePromo );
-    return totalHarga;        
-}
+    double totalHarga = item.hitungHargaTotal(jumlah, kodePromo);
+    return totalHarga;
+
+    }
 }

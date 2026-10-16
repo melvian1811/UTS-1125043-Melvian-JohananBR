@@ -2,9 +2,9 @@ package uts.melvian.model;
 import java.util.List;
 
 public class Roti extends MenuItem {
-    private int gula;   // free [0-5]
-    private int karamel; // +3000 [0-5]
-    private int meses; //+500 [0-5]
+    private int gula;  
+    private int karamel; 
+    private int meses; 
     
     public Roti(String id, String nama, double hargaBase, int stok) {
         super(id, nama, hargaBase, stok);

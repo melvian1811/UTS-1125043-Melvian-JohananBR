@@ -44,7 +44,7 @@ public class OrderView {
             try {
                 System.out.print("Masukkan Jumlah Pesanan: ");
                 jumlah = Integer.parseInt(scanner.nextLine().trim());
-                controller.validasiJumlah(jumlah, itemDipilih);
+                controller.Jumlah(jumlah, itemDipilih);
                 break;
 
             } catch (NumberFormatException e) {
@@ -54,23 +54,20 @@ public class OrderView {
                 System.out.println(e.getMessage());
             }
         }
+        
 
-        Ukuran ukuran = Ukuran.SMALL;
-        if (itemDipilih instanceof Kopi || itemDipilih instanceof Teh) {
-            System.out.print("Pilih Ukuran (1. SMALL, 2. MEDIUM, 3. LARGE): ");
-            int pilUkuran = Integer.parseInt(scanner.nextLine().trim());
-            if (pilUkuran == 2) ukuran = Ukuran.MEDIUM;
-            else if (pilUkuran == 3) ukuran = Ukuran.LARGE;
-        }
+
 
         int[] kustomisasi = inputKustomisasi(itemDipilih);
-        double totalHarga = controller.prosesPemesanan(itemDipilih, jumlah, ukuran, kustomisasi);
+        System.out.print("Masukkan Kode Promo (tekan ENTER jika tidak ada): ");
+        String kodePromo = scanner.nextLine().trim();
+        double totalHarga = controller.prosesPemesanan(itemDipilih, jumlah, kodePromo, kustomisasi);
 
-        cetakStruk(itemDipilih, jumlah, ukuran, totalHarga);
+        cetakStruk(itemDipilih, jumlah, kodePromo, totalHarga);
     }
 
     private int[] inputKustomisasi(MenuItem item) {
-        System.out.println("\n--- Input Kustomisasi ---");
+        System.out.println("\nInput Kustomisasi\n");
         if (item instanceof Kopi) {
             System.out.print("Rum (0-1): "); 
             int rum = scanner.nextInt();
@@ -114,13 +111,12 @@ public class OrderView {
         return new int[]{};
     }
 
-    private void cetakStruk(MenuItem item, int jumlah, Ukuran ukuran, double totalHarga) {
+    private void cetakStruk(MenuItem item, int jumlah, String kodePromo, double totalHarga) {
         System.out.println("\n================ STRUK PEMESANAN ================");
         System.out.println("Detail Rincian : " + item.getOrderDetail());
-        System.out.println("Ukuran         : " + ukuran);
+        System.out.println("Kode Promo         : " + kodePromo);
         System.out.println("Jumlah         : " + jumlah);
         System.out.println("Sisa Stok Menu : " + item.getStok());
-        System.out.printf("TOTAL HARGA    : Rp%.0f%n", totalHarga);
-        System.out.println("=================================================");
+        System.out.printf("TOTAL HARGA    : Rp."+ totalHarga);
     }
 }

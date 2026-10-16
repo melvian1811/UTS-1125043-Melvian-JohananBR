@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Kopi extends MenuItem {
 
-    private int rum;    // +3000 [0-1]
-    private int es;     // free [0-5]
-    private int gula;   // free [0-5]
-    private int karamel; // +3000 [0-5]
+    private int rum;
+    private int es;
+    private int gula;
+    private int karamel;
 
-    public Kopi(String nama, String id, int hargaBase, int stok) {
-        super(nama, id, hargaBase, stok);
+    public Kopi(String id, String nama, int hargaBase, int stok) {
+        super(id, nama, hargaBase, stok);
     }
 
     @Override

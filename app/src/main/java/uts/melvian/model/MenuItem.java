@@ -62,7 +62,7 @@ public abstract class MenuItem implements Customize {
         }
         return total;
     }
-    
+
 
     public double getBiayaKustomisasiTotal() {
     return biayaKustomisasiTotal;

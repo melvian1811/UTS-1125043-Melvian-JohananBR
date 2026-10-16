@@ -3,10 +3,10 @@ package uts.melvian.model;
 import java.util.List;
 
 public class Teh extends MenuItem {
-    private int boba;   // +1000 [0-3]
-    private int es;     // free [0-5]
-    private int gula;   // free [0-5]
-    private int karamel; // +3000 [0-5]
+    private int boba;  
+    private int es;    
+    private int gula;  
+    private int karamel; 
 
     public Teh(String id, String nama, double hargaBase, int stok) {
         super(id, nama, hargaBase, stok);
