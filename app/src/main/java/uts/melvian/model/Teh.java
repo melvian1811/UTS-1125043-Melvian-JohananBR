@@ -26,19 +26,18 @@ public class Teh extends MenuItem {
 
     @Override
     public void Customize(List<Integer> customizations) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'Customize'");
+        int[] arr = customizations.stream().mapToInt(i -> i).toArray();
+        Customize(arr);
     }
 
     @Override
     public double hitungHargaTotal() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'hitungHargaTotal'");
+        return getHargaBase() + biayaKustomisasiTotal;
     }
 
     @Override
     public String getOrderDetail() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOrderDetail'");
+        return "Teh: "+nama+" | Boba: "+boba+" Es: "+ es +"Gula: "+gula +"| Karamel: "+karamel +"| Biaya Kustom: Rp."+biayaKustomisasiTotal;
     }
 }
+

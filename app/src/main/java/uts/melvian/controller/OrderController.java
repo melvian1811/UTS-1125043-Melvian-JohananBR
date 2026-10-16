@@ -42,8 +42,9 @@ public class OrderController {
         }
     }
 
-    public double prosesPemesanan(MenuItem item, int jumlah, Ukuran ukuran, int[] customizations) {
-        item.Customize(customizations);
-        double totalHarga = item.hitungHargaTotal(jumlah, ukuran);
-    }
+    public double prosesPemesanan(MenuItem item, int jumlah, int[] customizations, String kodePromo) {
+    item.Customize(customizations);
+    double totalHarga = item.hitungHargaTotal(jumlah, kodePromo );
+    return totalHarga;        
+}
 }

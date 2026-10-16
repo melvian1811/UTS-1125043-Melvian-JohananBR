@@ -38,8 +38,7 @@ public class Kopi extends MenuItem {
 
     @Override
     public String getOrderDetail() {
-        return String.format("Kopi: %s | Rum: %d, Es: %d, Gula: %d, Karamel: %d | Biaya Kustom: Rp%.0f",
-                getNama(), rum, es, gula, karamel, biayaKustomisasiTotal);
+        return "Kopi: "+ nama +" | Rum: "+rum+"| Es: "+ es+" Gula: "+gula+"| Karamel: "+karamel+" | Biaya Kustom: Rp."+biayaKustomisasiTotal;
     }
     
     
